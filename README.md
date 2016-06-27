@@ -46,7 +46,6 @@ Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTe
 
 To get other details you can use:
 ```Java
-Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTemp());
 String location = response.getName();
 String humidity= response.getMain().getHumidity();
 String pressure = response.getMain().getPressure();
