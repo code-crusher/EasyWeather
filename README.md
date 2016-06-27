@@ -37,16 +37,22 @@ weatherMap.getCityWeather(city, new WeatherCallback() {
             public void success(WeatherResponseModel response) {
                 Weather weather[] = response.getWeather();
                 String weatherMain = weather[0].getMain();
-                Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTemp());
-                String location = response.getName();
-
-                String humidity= response.getMain().getHumidity();
-                String pressure = response.getMain().getPressure();
-                String windSpeed = response.getWind().getSpeed();
-                
-                String iconLink = weather[0].getIconLink();
             }
 ```
+To get temperature in specific units you can use:
+```Java
+Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTemp());
+```
+
+To get other details you can use:
+```Java
+Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTemp());
+String location = response.getName();
+String humidity= response.getMain().getHumidity();
+String pressure = response.getMain().getPressure();
+String windSpeed = response.getWind().getSpeed();
+String iconLink = weather[0].getIconLink();
+ ```
 **By Location Coordinates**:
 ```Java
 weatherMap.getLocationWeather(latitude, longitude, new WeatherCallback() {
