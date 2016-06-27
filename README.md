@@ -8,7 +8,6 @@ Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API fo
 
 #Screenshot
 ![Screenshot](https://github.com/code-crusher/EasyWeather/blob/master/images/screenshot.png)
-
 #Integration
 -------------
 
