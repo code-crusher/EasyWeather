@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/OpenWeatherMapDemo.iml" filepath="$PROJECT_DIR$/OpenWeatherMapDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Easy Weather.iml" filepath="$PROJECT_DIR$/Easy Weather.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/library/openweathermapjwrapper.iml" filepath="$PROJECT_DIR$/library/openweathermapjwrapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
     </modules>
   </component>
 </project>

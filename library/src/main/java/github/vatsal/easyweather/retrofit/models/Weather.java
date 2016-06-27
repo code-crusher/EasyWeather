@@ -29,6 +29,10 @@ public class Weather {
         return icon;
     }
 
+    public String getIconLink() {
+        return "http://openweathermap.org/img/w/" + icon + ".png";
+    }
+
     public void setIcon(String icon) {
         this.icon = icon;
     }
