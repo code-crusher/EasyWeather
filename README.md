@@ -75,8 +75,7 @@ To get **Forecast** use this in `Activity` also you need specify `index` to get 
 weatherMap.getCityForecast(city, new ForecastCallback() {
             @Override
             public void success(ForecastResponseModel response) {
-                              
-                                Weather weather[] = response.getList()[index].getWeather();
+                Weather weather[] = response.getList()[index].getWeather();
             }
 
             @Override
