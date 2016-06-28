@@ -1,10 +1,17 @@
 ![hero](https://github.com/code-crusher/EasyWeather/blob/master/images/github-hero.png)
-----------
+</br>
+
+Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API for Android.
+
+--------
+
 [![Bintray](https://img.shields.io/badge/Bintray-v1.0.0-brightgreen.svg)](https://bintray.com/code-crusher/maven/EasyWeather)
 <a href="http://www.methodscount.com/?lib=com.github.dextorer%3Asofa%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 817 | 105 KB-e91e63.svg"/></a>
 <a href="http://twitter.com/vatsal__bajpai"><img src="https://img.shields.io/badge/Twitter-@vatsal__bajpai-blue.svg?style=flat" alt="Twitter" data-canonical-src="https://img.shields.io/badge/Twitter-@vatsal__bajpai-blue.svg?style=flat" style="max-width:100%;"></a><br>
 
-Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API for Android.
+###Featured in
+<a href="https://android-arsenal.com/details/1/3798"><img src="https://img.shields.io/badge/Android%20Arsenal-EasyWeather-green.svg"/></a>
+
 
 #Screenshot
 ![Screenshot](https://github.com/code-crusher/EasyWeather/blob/master/images/screenshot.png)
