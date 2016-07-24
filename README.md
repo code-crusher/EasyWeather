@@ -14,7 +14,7 @@ Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API fo
 <a href="https://android-arsenal.com/details/1/3798"><img src="https://img.shields.io/badge/Android%20Arsenal-EasyWeather-green.svg"/></a>
 
 #Concept Art
-![Concept Art](https://github.com/code-crusher/EasyWeather/blob/master/images/easyWeather.png)
+![Concept Art](https://github.com/code-crusher/EasyWeather/blob/master/images/concept-art.png)
 
 #Screenshot
 ![Screenshot](https://github.com/code-crusher/EasyWeather/blob/master/images/screenshot.png)
