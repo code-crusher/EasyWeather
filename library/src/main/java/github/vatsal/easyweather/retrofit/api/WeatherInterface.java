@@ -9,21 +9,23 @@ import retrofit2.http.Query;
 public interface WeatherInterface {
 
     @GET("weather")
-    Call<WeatherResponseModel> getCityWeather(@Query("appid") String appid,
-                                              @Query("q") String city);
+    Call<WeatherResponseModel> getCityWeather(@Query(FIELDS.Q) String city);
 
     @GET("weather")
-    Call<WeatherResponseModel> getLocationWeather(@Query("appid") String appid,
-                                                  @Query("lat") String latitude,
-                                                  @Query("lon") String longitude);
+    Call<WeatherResponseModel> getLocationWeather(@Query(FIELDS.LAT) String latitude,
+                                                  @Query(FIELDS.LON) String longitude);
 
     @GET("forecast")
-    Call<ForecastResponseModel> getCityForcast(@Query("appid") String appid,
-                                               @Query("q") String city);
+    Call<ForecastResponseModel> getCityForcast(@Query(FIELDS.Q) String city);
 
     @GET("forecast")
-    Call<ForecastResponseModel> getLocationForecast(@Query("appid") String appid,
-                                                    @Query("lat") String latitude,
-                                                    @Query("lon") String longitude);
+    Call<ForecastResponseModel> getLocationForecast(@Query(FIELDS.LAT) String latitude,
+                                                    @Query(FIELDS.LON) String longitude);
 
+    interface FIELDS {
+        String APPID = "appid";
+        String Q = "q";
+        String LAT = "lat";
+        String LON = "lon";
+    }
 }

@@ -9,6 +9,8 @@ package github.vatsal.easyweather.retrofit.models;
  * --OpenWeatherMapDemo
  */
 public class Weather {
+    private static final String HTTP_OPENWEATHERMAP_ORG_IMG_W = "http://openweathermap.org/img/w/";
+
     private String id;
 
     private String icon;
@@ -30,7 +32,7 @@ public class Weather {
     }
 
     public String getIconLink() {
-        return "http://openweathermap.org/img/w/" + icon + ".png";
+        return String.format("%s%s.png", HTTP_OPENWEATHERMAP_ORG_IMG_W, icon);
     }
 
     public void setIcon(String icon) {
@@ -55,6 +57,6 @@ public class Weather {
 
     @Override
     public String toString() {
-        return "ClassPojo [id = " + id + ", icon = " + icon + ", description = " + description + ", main = " + main + "]";
+        return String.format("ClassPojo [id = %s, icon = %s, description = %s, main = %s]", id, icon, description, main);
     }
 }

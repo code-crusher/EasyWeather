@@ -1,9 +1,6 @@
 package github.vatsal.easyweather.retrofit.api;
 
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -28,7 +25,7 @@ public class ApiClient {
         return uniqInstance;
     }
 
-    private void ApiClient(@NonNull final Context currContext) {
+    private void ApiClient(final String appId) {
         try {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             // set your desired log level
@@ -41,6 +38,7 @@ public class ApiClient {
                     Request.Builder builder = original.newBuilder();
                     builder.method(original.method(), original.body());
 
+                    builder.addHeader(WeatherInterface.FIELDS.APPID, appId);
                     Request request = builder.build();
 
                     return chain.proceed(request);
@@ -94,11 +92,11 @@ public class ApiClient {
         }
     }
 
-    public WeatherInterface getApi(Context currContext) {
+    public WeatherInterface getApi(String appId) {
         if (uniqInstance == null) {
             getInstance();
         }
-        uniqInstance.ApiClient(currContext);
+        uniqInstance.ApiClient(appId);
 
         return weatherInterface;
     }

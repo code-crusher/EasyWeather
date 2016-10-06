@@ -1,8 +1,5 @@
 package github.vatsal.easyweather.retrofit.api;
 
-import android.app.Activity;
-import android.content.Context;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -11,16 +8,6 @@ import retrofit2.Response;
  * Created by nuhbye on 07/03/16.
  */
 public abstract class WeatherRetrofitCallback<S> implements Callback {
-    Activity activity;
-    Context context;
-
-    public WeatherRetrofitCallback(Activity activity) {
-        this.activity = activity;
-    }
-
-    public WeatherRetrofitCallback(Context context) {
-        this.context = context;
-    }
 
     @Override
     public void onResponse(Call call, Response response) {

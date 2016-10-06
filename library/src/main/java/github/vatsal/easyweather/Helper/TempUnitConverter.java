@@ -8,6 +8,8 @@ package github.vatsal.easyweather.Helper;
  */
 public class TempUnitConverter {
 
+    private static final double ABSOLUTE_ZERO = 273.15;
+
     public static Double convertToCelsius(String kelvin) throws NumberFormatException {
         double inKelvin;
         try {
@@ -15,7 +17,7 @@ public class TempUnitConverter {
         } catch (NumberFormatException e) {
             throw e;
         }
-        return inKelvin - 273.15;
+        return inKelvin - ABSOLUTE_ZERO;
     }
 
     public static Double convertToFahrenheit(String kelvin) throws NumberFormatException {
@@ -25,7 +27,7 @@ public class TempUnitConverter {
         } catch (NumberFormatException e) {
             throw e;
         }
-        return (inKelvin - 273.15) * 1.8000 + 32.00;
+        return (inKelvin - ABSOLUTE_ZERO) * 1.8000 + 32.00;
     }
 
 }
