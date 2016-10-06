@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadWeather(String city) {
-        WeatherMap weatherMap = new WeatherMap(this, APP_ID);
+        WeatherMap weatherMap = new WeatherMap(APP_ID);
         weatherMap.getCityWeather(city, new WeatherCallback() {
             @Override
             public void success(WeatherResponseModel response) {

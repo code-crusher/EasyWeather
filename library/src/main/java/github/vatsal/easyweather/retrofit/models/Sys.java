@@ -71,6 +71,6 @@ public class Sys {
 
     @Override
     public String toString() {
-        return "ClassPojo [message = " + message + ", id = " + id + ", sunset = " + sunset + ", sunrise = " + sunrise + ", type = " + type + ", country = " + country + "]";
+        return String.format("ClassPojo [message = %s, id = %s, sunset = %s, sunrise = %s, type = %s, country = %s]", message, id, sunset, sunrise, type, country);
     }
 }

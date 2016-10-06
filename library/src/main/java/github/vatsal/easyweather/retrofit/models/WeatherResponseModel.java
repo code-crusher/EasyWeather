@@ -1,6 +1,7 @@
 package github.vatsal.easyweather.retrofit.models;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * Created by
@@ -134,6 +135,7 @@ public class WeatherResponseModel implements Serializable {
 
     @Override
     public String toString() {
-        return "ClassPojo [id = " + id + ", dt = " + dt + ", clouds = " + clouds + ", coord = " + coord + ", wind = " + wind + ", cod = " + cod + ", sys = " + sys + ", name = " + name + ", base = " + base + ", weather = " + weather + ", rain = " + rain + ", main = " + main + "]";
+        return String.format("ClassPojo [id = %s, dt = %s, clouds = %s, coord = %s, wind = %s, cod = %s, sys = %s, name = %s, base = %s, weather = %s, rain = %s, main = %s]",
+                id, dt, clouds, coord, wind, cod, sys, name, base, Arrays.toString(weather), rain, main);
     }
 }

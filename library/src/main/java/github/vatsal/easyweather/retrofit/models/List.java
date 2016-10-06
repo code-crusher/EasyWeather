@@ -91,6 +91,6 @@ public class List {
 
     @Override
     public String toString() {
-        return "ClassPojo [clouds = " + clouds + ", dt = " + dt + ", wind = " + wind + ", sys = " + sys + ", weather = " + weather + ", dt_txt = " + dt_txt + ", rain = " + rain + ", main = " + main + "]";
+        return String.format("ClassPojo [clouds = %s, dt = %s, wind = %s, sys = %s, weather = %s, dt_txt = %s, rain = %s, main = %s]", clouds, dt, wind, sys, weather, dt_txt, rain, main);
     }
 }

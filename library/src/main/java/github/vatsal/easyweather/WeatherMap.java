@@ -1,7 +1,5 @@
 package github.vatsal.easyweather;
 
-import android.content.Context;
-
 import github.vatsal.easyweather.Helper.ForecastCallback;
 import github.vatsal.easyweather.Helper.WeatherCallback;
 import github.vatsal.easyweather.retrofit.api.ApiClient;
@@ -18,26 +16,24 @@ import retrofit2.Call;
  * --2:44 AM in
  * --OpenWeatherMapDemo
  */
+@SuppressWarnings("unchecked")
 public class WeatherMap {
 
-    Context context;
-    String APP_ID;
+    private String APP_ID;
 
-
-    public WeatherMap(Context context, String APP_ID) {
-        this.context = context;
+    public WeatherMap(String APP_ID) {
         this.APP_ID = APP_ID;
     }
 
     public void getCityWeather(String city, final WeatherCallback weatherCallback) {
         final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
+            Call objCall;
 
-            objCall = objApi.getApi(context).getCityWeather(APP_ID, city);
+            objCall = objApi.getApi(APP_ID).getCityWeather(city);
 
             if (objCall != null) {
-                objCall.enqueue(new WeatherRetrofitCallback<WeatherResponseModel>(context) {
+                objCall.enqueue(new WeatherRetrofitCallback<WeatherResponseModel>() {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
@@ -73,12 +69,12 @@ public class WeatherMap {
     public void getLocationWeather(String latitude, String longitude, final WeatherCallback weatherCallback) {
         final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
+            Call objCall;
 
-            objCall = objApi.getApi(context).getLocationWeather(APP_ID, latitude, longitude);
+            objCall = objApi.getApi(APP_ID).getLocationWeather(latitude, longitude);
 
             if (objCall != null) {
-                objCall.enqueue(new WeatherRetrofitCallback<WeatherResponseModel>(context) {
+                objCall.enqueue(new WeatherRetrofitCallback<WeatherResponseModel>() {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
@@ -114,12 +110,12 @@ public class WeatherMap {
     public void getCityForecast(String city, final ForecastCallback forecastCallback) {
         final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
+            Call objCall;
 
-            objCall = objApi.getApi(context).getCityForcast(APP_ID, city);
+            objCall = objApi.getApi(APP_ID).getCityForcast(city);
 
             if (objCall != null) {
-                objCall.enqueue(new WeatherRetrofitCallback<ForecastResponseModel>(context) {
+                objCall.enqueue(new WeatherRetrofitCallback<ForecastResponseModel>() {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {
@@ -155,12 +151,12 @@ public class WeatherMap {
     public void getLocationForecast(String latitude, String longitude, final ForecastCallback forecastCallback) {
         final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
+            Call objCall;
 
-            objCall = objApi.getApi(context).getLocationForecast(APP_ID, latitude, longitude);
+            objCall = objApi.getApi(APP_ID).getLocationForecast(latitude, longitude);
 
             if (objCall != null) {
-                objCall.enqueue(new WeatherRetrofitCallback<ForecastResponseModel>(context) {
+                objCall.enqueue(new WeatherRetrofitCallback<ForecastResponseModel>() {
 
                     @Override
                     public void onFailure(Call call, Throwable t) {

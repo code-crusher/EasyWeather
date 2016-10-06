@@ -61,6 +61,6 @@ public class ForecastResponseModel {
 
     @Override
     public String toString() {
-        return "ClassPojo [message = " + message + ", cnt = " + cnt + ", cod = " + cod + ", list = " + list + ", city = " + city + "]";
+        return String.format("ClassPojo [message = %s, cnt = %s, cod = %s, list = %s, city = %s]", message, cnt, cod, list, city);
     }
 }
