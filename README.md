@@ -1,15 +1,23 @@
+![hero](https://github.com/code-crusher/EasyWeather/blob/master/images/github-hero.png)
+</br>
 
+Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API for Android.
 
+--------
+###Specs
 
-Easy Weather
-==========
-----------
 [![Bintray](https://img.shields.io/badge/Bintray-v1.0.0-brightgreen.svg)](https://bintray.com/code-crusher/maven/EasyWeather)
 <a href="http://www.methodscount.com/?lib=com.github.dextorer%3Asofa%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 817 | 105 KB-e91e63.svg"/></a>
 <a href="http://twitter.com/vatsal__bajpai"><img src="https://img.shields.io/badge/Twitter-@vatsal__bajpai-blue.svg?style=flat" alt="Twitter" data-canonical-src="https://img.shields.io/badge/Twitter-@vatsal__bajpai-blue.svg?style=flat" style="max-width:100%;"></a><br>
 
-Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API for Android.
+###Featured in
+<a href="https://android-arsenal.com/details/1/3798"><img src="https://img.shields.io/badge/Android%20Arsenal-EasyWeather-green.svg"/></a>
 
+#Concept Art
+![Concept Art](https://github.com/code-crusher/EasyWeather/blob/master/images/concept-art.png)
+
+#Screenshot
+![Screenshot](https://github.com/code-crusher/EasyWeather/blob/master/images/screenshot.png)
 #Integration
 -------------
 
@@ -39,16 +47,21 @@ weatherMap.getCityWeather(city, new WeatherCallback() {
             public void success(WeatherResponseModel response) {
                 Weather weather[] = response.getWeather();
                 String weatherMain = weather[0].getMain();
-                Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTemp());
-                String location = response.getName();
-
-                String humidity= response.getMain().getHumidity();
-                String pressure = response.getMain().getPressure();
-                String windSpeed = response.getWind().getSpeed();
-                
-                String iconLink = weather[0].getIconLink();
             }
 ```
+To get temperature in specific units you can use:
+```Java
+Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTemp());
+```
+
+To get other details you can use:
+```Java
+String location = response.getName();
+String humidity= response.getMain().getHumidity();
+String pressure = response.getMain().getPressure();
+String windSpeed = response.getWind().getSpeed();
+String iconLink = weather[0].getIconLink();
+ ```
 **By Location Coordinates**:
 ```Java
 weatherMap.getLocationWeather(latitude, longitude, new WeatherCallback() {
@@ -71,8 +84,7 @@ To get **Forecast** use this in `Activity` also you need specify `index` to get 
 weatherMap.getCityForecast(city, new ForecastCallback() {
             @Override
             public void success(ForecastResponseModel response) {
-                              
-                                Weather weather[] = response.getList()[index].getWeather();
+                Weather weather[] = response.getList()[index].getWeather();
             }
 
             @Override
