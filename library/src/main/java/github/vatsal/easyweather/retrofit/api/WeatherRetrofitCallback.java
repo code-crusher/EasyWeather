@@ -8,7 +8,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
- * Created by nuhbye on 07/03/16.
+ * Created by
+ --Vatsal Bajpai on
+ --07/03/16 at
+ --4:30 PM
  */
 public abstract class WeatherRetrofitCallback<S> implements Callback {
     Activity activity;

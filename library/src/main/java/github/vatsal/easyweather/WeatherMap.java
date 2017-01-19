@@ -23,7 +23,6 @@ public class WeatherMap {
     Context context;
     String APP_ID;
 
-
     public WeatherMap(Context context, String APP_ID) {
         this.context = context;
         this.APP_ID = APP_ID;

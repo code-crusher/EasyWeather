@@ -47,41 +47,12 @@ public class ApiClient {
                 }
             };
 
-   /*         Interceptor bodyInterceptor = new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-
-                    Request request = chain.request();
-                    Response response = chain.proceed(request);
-
-                   // String stringJson = response.body().toString();
-                    //response.body().bytes();
-                    JSONObject jsonObject = null;
-                    try {
-                        jsonObject = new JSONObject(response.body().toString());
-                        jsonObject.put("_3h", jsonObject.get("3h"));
-                        jsonObject.remove("3h");
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                    MediaType contentType = response.body().contentType();
-                    ResponseBody body = ResponseBody.create(contentType, String.valueOf(jsonObject));
-                    return response.newBuilder().body(body).build();
-
-                }
-            };*/
-
             OkHttpClient httpClient = new OkHttpClient.Builder()
                     .addInterceptor(headerInterceptor)
                     .addInterceptor(logging)
-                    //      .addInterceptor(bodyInterceptor)
                     .build();
-            //httpClient.networkInterceptors().add(headerInterceptor);
-
             String API_URL = URL_LIVE;
 
-            // <-- this is the important line!
             Retrofit retrofit = new Retrofit.Builder()
                     .baseUrl(API_URL)
                     .addConverterFactory(GsonConverterFactory.create())
