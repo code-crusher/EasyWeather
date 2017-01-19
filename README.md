@@ -6,7 +6,7 @@ Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API fo
 --------
 ###Specs
 
-[![Bintray](https://img.shields.io/badge/Bintray-v1.0.0-brightgreen.svg)](https://bintray.com/code-crusher/maven/EasyWeather)
+[![](https://jitpack.io/v/code-crusher/EasyWeather.svg)](https://jitpack.io/#code-crusher/EasyWeather)
 <a href="http://www.methodscount.com/?lib=com.github.dextorer%3Asofa%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 817 | 105 KB-e91e63.svg"/></a>
 <a href="http://twitter.com/vatsal__bajpai"><img src="https://img.shields.io/badge/Twitter-@vatsal__bajpai-blue.svg?style=flat" alt="Twitter" data-canonical-src="https://img.shields.io/badge/Twitter-@vatsal__bajpai-blue.svg?style=flat" style="max-width:100%;"></a><br>
 
@@ -20,11 +20,22 @@ Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API fo
 ![Screenshot](https://github.com/code-crusher/EasyWeather/blob/master/images/screenshot.png)
 #Integration
 -------------
-
- - **EasyWeather** is available in the MavenCentral, so getting it as simple as adding it in `dependencies` of your `build.gradle`:
+Add the JitPack repository to your build file, add it in your root build.gradle at the end of repositories:
+```gradle
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+ ```
+ 
+ - Using **EasyWeather** is as simple as adding it in `dependencies` of your `build.gradle`:
 
 ```gradle
-compile 'github.vatsal.easyweather:library:1.0.0'
+dependencies {
+	        compile 'com.github.code-crusher:EasyWeather:v1.2'
+	}
 ```
 
 #Usage
