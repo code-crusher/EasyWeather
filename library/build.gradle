@@ -2,8 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
-group = 'github.vatsal.easyweather'
-version = '1.1'
+group = 'com.github.vatsal'
 
 android {
     compileSdkVersion 25
@@ -30,48 +29,4 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
-}
-
-task generateSourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier 'sources'
-}
-
-task generateJavadocs(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath()
-            .join(File.pathSeparator))
-}
-
-task generateJavadocsJar(type: Jar) {
-    from generateJavadocs.destinationDir
-    classifier 'javadoc'
-}
-
-generateJavadocsJar.dependsOn generateJavadocs
-
-artifacts {
-    archives generateJavadocsJar
-    archives generateSourcesJar
-}
-
-bintray {
-    user = 'code-crusher'
-    key = '5ddba039b9c71692da10f261cc92394fe3f93d77'
-    pkg {
-        repo = 'maven'
-        name = 'EasyWeather'
-
-        version {
-            name = 'library'
-            desc = 'Easy weather and forecast fetching from OpenWeatherMap API for Android.'
-            released = new Date()
-            vcsTag = '1.1'
-        }
-
-        licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/code-crusher/EasyWeather.git'
-        websiteUrl = 'https://github.com/code-crusher/EasyWeather'
-    }
-    configurations = ['archives']
 }
