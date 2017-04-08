@@ -16,7 +16,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import github.vatsal.easyweather.Helper.TempUnitConverter;
 import github.vatsal.easyweather.Helper.WeatherCallback;
-import github.vatsal.easyweather.WeatherMap;
+import github.vatsal.easyweather.retrofit.api.WeatherMap;
 import github.vatsal.easyweather.retrofit.models.CurrentWeatherResponseModel;
 import github.vatsal.easyweather.retrofit.models.DailyForecastResponseModel;
 import github.vatsal.easyweather.retrofit.models.ForecastResponseModel;

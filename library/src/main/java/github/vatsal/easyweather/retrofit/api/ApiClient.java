@@ -1,9 +1,6 @@
 package github.vatsal.easyweather.retrofit.api;
 
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -19,7 +16,7 @@ public class ApiClient {
     private static ApiClient instance;
     private static final String URL_LIVE = "http://api.openweathermap.org/data/2.5/";
 
-    private WeatherInterface weatherInterface;
+
 
     public static synchronized ApiClient getInstance() {
         if (instance == null) {
@@ -28,7 +25,8 @@ public class ApiClient {
         return instance;
     }
 
-    private void ApiClient(@NonNull final Context currContext) {
+    protected WeatherInterface getWeatherInterface() {
+        WeatherInterface weatherInterface = null;
         try {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             // set your desired log level
@@ -62,14 +60,6 @@ public class ApiClient {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public WeatherInterface getApi(Context currContext) {
-        if (instance == null) {
-            getInstance();
-        }
-        instance.ApiClient(currContext);
-
         return weatherInterface;
     }
 }
