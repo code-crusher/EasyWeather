@@ -72,7 +72,7 @@ Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTe
 
 **By Location Coordinates**:
 ```Java
-weatherMap.getLocationWeather(city, new WeatherCallback<CurrentWeatherResponseModel>() {
+weatherMap.getLocationWeather(latitude, longitude, new WeatherCallback<CurrentWeatherResponseModel>() {
             @Override
             public void success(CurrentWeatherResponseModel response) {
                 Log.i(response.toString());
@@ -106,7 +106,7 @@ weatherMap.getCityForecast(city, new WeatherCallback<ForecastResponseModel>() {
 **By Location Coordinates:**
 
 ```Java
-weatherMap.getLocationForecast(city, new WeatherCallback<ForecastResponseModel>() {
+weatherMap.getLocationForecast(latitude, longitude, new WeatherCallback<ForecastResponseModel>() {
             @Override
             public void success(ForecastResponseModel response) {
                 Log.i(response.toString());
@@ -118,6 +118,8 @@ weatherMap.getLocationForecast(city, new WeatherCallback<ForecastResponseModel>(
             }
         });
 ```
+
+To get **DailyForecast** use this in `Activity` also you need specify `index` to get the specific hour of [16 day / daily forecast](http://openweathermap.org/forecast5):
 
 **By City Name:**
 
@@ -139,7 +141,7 @@ weatherMap.getCityDailyForecast(city, [OPTIONAL] "6", new WeatherCallback<DailyF
 **By Location Coordinates:**
 
 ```Java
-weatherMap.getLocationDailyForecast(city, [OPTIONAL] "6", new WeatherCallback<DailyForecastResponseModel>() {
+weatherMap.getLocationDailyForecast(latitude, longitude, [OPTIONAL] "6", new WeatherCallback<DailyForecastResponseModel>() {
             @Override
             public void success(DailyForecastResponseModel response) {
                 Log.i(response.toString());
