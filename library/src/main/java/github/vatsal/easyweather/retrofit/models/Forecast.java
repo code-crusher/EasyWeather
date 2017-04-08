@@ -8,7 +8,7 @@ package github.vatsal.easyweather.retrofit.models;
  * --1:50 AM in
  * --OpenWeatherMapDemo
  */
-public class List {
+public class Forecast {
     private Clouds clouds;
 
     private String dt;

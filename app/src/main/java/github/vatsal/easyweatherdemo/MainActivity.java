@@ -3,6 +3,7 @@ package github.vatsal.easyweatherdemo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -17,9 +18,10 @@ import butterknife.OnClick;
 import github.vatsal.easyweather.Helper.TempUnitConverter;
 import github.vatsal.easyweather.Helper.WeatherCallback;
 import github.vatsal.easyweather.WeatherMap;
+import github.vatsal.easyweather.retrofit.models.CurrentWeatherResponseModel;
+import github.vatsal.easyweather.retrofit.models.DailyForecastResponseModel;
 import github.vatsal.easyweather.retrofit.models.ForecastResponseModel;
 import github.vatsal.easyweather.retrofit.models.Weather;
-import github.vatsal.easyweather.retrofit.models.WeatherResponseModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -80,9 +82,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadWeather(String city) {
         WeatherMap weatherMap = new WeatherMap(this, APP_ID);
-        weatherMap.getCityWeather(city, new WeatherCallback<WeatherResponseModel>() {
+        weatherMap.getCityWeather(city, new WeatherCallback<CurrentWeatherResponseModel>() {
             @Override
-            public void success(WeatherResponseModel response) {
+            public void success(CurrentWeatherResponseModel response) {
                 populateWeather(response);
             }
 
@@ -95,7 +97,19 @@ public class MainActivity extends AppCompatActivity {
         weatherMap.getCityForecast(city, new WeatherCallback<ForecastResponseModel>() {
             @Override
             public void success(ForecastResponseModel response) {
-                ForecastResponseModel responseModel = response;
+                //Log.i("test", response.toString());
+            }
+
+            @Override
+            public void failure(String message) {
+
+            }
+        });
+
+        weatherMap.getCityDailyForecast(city, "3", new WeatherCallback<DailyForecastResponseModel>() {
+            @Override
+            public void success(DailyForecastResponseModel response) {
+                Log.i("test", response.toString());
             }
 
             @Override
@@ -105,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void populateWeather(WeatherResponseModel response) {
+    private void populateWeather(CurrentWeatherResponseModel response) {
 
         Weather weather[] = response.getWeather();
         condition.setText(weather[0].getMain());

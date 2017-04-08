@@ -1,5 +1,7 @@
 package github.vatsal.easyweather.retrofit.models;
 
+import java.util.Arrays;
+
 /**
  * Created by
  * --Vatsal Bajpai under
@@ -8,30 +10,23 @@ package github.vatsal.easyweather.retrofit.models;
  * --1:50 AM in
  * --OpenWeatherMapDemo
  */
-public class List {
-    private Clouds clouds;
+public class DailyForecast {
 
     private String dt;
 
-    private Wind wind;
+    private Temp temp;
 
-    private Sys sys;
+    private String pressure;
+
+    private String humidity;
 
     private Weather[] weather;
 
-    private String dt_txt;
+    private String speed;
 
-    private Rain rain;
+    private String deg;
 
-    private Main main;
-
-    public Clouds getClouds() {
-        return clouds;
-    }
-
-    public void setClouds(Clouds clouds) {
-        this.clouds = clouds;
-    }
+    private String clouds;
 
     public String getDt() {
         return dt;
@@ -41,20 +36,28 @@ public class List {
         this.dt = dt;
     }
 
-    public Wind getWind() {
-        return wind;
+    public Temp getTemp() {
+        return temp;
     }
 
-    public void setWind(Wind wind) {
-        this.wind = wind;
+    public void setTemp(Temp temp) {
+        this.temp = temp;
     }
 
-    public Sys getSys() {
-        return sys;
+    public String getPressure() {
+        return pressure;
     }
 
-    public void setSys(Sys sys) {
-        this.sys = sys;
+    public void setPressure(String pressure) {
+        this.pressure = pressure;
+    }
+
+    public String getHumidity() {
+        return humidity;
+    }
+
+    public void setHumidity(String humidity) {
+        this.humidity = humidity;
     }
 
     public Weather[] getWeather() {
@@ -65,32 +68,41 @@ public class List {
         this.weather = weather;
     }
 
-    public String getDt_txt() {
-        return dt_txt;
+    public String getSpeed() {
+        return speed;
     }
 
-    public void setDt_txt(String dt_txt) {
-        this.dt_txt = dt_txt;
+    public void setSpeed(String speed) {
+        this.speed = speed;
     }
 
-    public Rain getRain() {
-        return rain;
+    public String getDeg() {
+        return deg;
     }
 
-    public void setRain(Rain rain) {
-        this.rain = rain;
+    public void setDeg(String deg) {
+        this.deg = deg;
     }
 
-    public Main getMain() {
-        return main;
+    public String getClouds() {
+        return clouds;
     }
 
-    public void setMain(Main main) {
-        this.main = main;
+    public void setClouds(String clouds) {
+        this.clouds = clouds;
     }
 
     @Override
     public String toString() {
-        return "ClassPojo [clouds = " + clouds + ", dt = " + dt + ", wind = " + wind + ", sys = " + sys + ", weather = " + weather + ", dt_txt = " + dt_txt + ", rain = " + rain + ", main = " + main + "]";
+        return "DailyForecast{" +
+                "dt='" + dt + '\'' +
+                ", temp=" + temp +
+                ", pressure='" + pressure + '\'' +
+                ", humidity='" + humidity + '\'' +
+                ", weather=" + Arrays.toString(weather) +
+                ", speed='" + speed + '\'' +
+                ", deg='" + deg + '\'' +
+                ", clouds='" + clouds + '\'' +
+                '}';
     }
 }

@@ -1,7 +1,5 @@
 package github.vatsal.easyweather.retrofit.models;
 
-import java.io.Serializable;
-
 /**
  * Created by
  * --Vatsal Bajpai under
@@ -10,7 +8,7 @@ import java.io.Serializable;
  * --3:16 PM in
  * --PopularMoviesApp
  */
-public class WeatherResponseModel implements Serializable {
+public class CurrentWeatherResponseModel {
 
     private String id;
 

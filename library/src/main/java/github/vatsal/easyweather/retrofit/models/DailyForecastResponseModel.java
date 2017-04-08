@@ -1,5 +1,7 @@
 package github.vatsal.easyweather.retrofit.models;
 
+import java.util.Arrays;
+
 /**
  * Created by
  * --Vatsal Bajpai under
@@ -8,14 +10,14 @@ package github.vatsal.easyweather.retrofit.models;
  * --1:48 AM in
  * --OpenWeatherMapDemo
  */
-public class ForecastResponseModel {
+public class DailyForecastResponseModel {
     private String message;
 
     private String cnt;
 
     private String cod;
 
-    private List[] list;
+    private DailyForecast[] list;
 
     private City city;
 
@@ -43,11 +45,11 @@ public class ForecastResponseModel {
         this.cod = cod;
     }
 
-    public List[] getList() {
+    public DailyForecast[] getList() {
         return list;
     }
 
-    public void setList(List[] list) {
+    public void setList(DailyForecast[] list) {
         this.list = list;
     }
 
@@ -61,6 +63,12 @@ public class ForecastResponseModel {
 
     @Override
     public String toString() {
-        return "ClassPojo [message = " + message + ", cnt = " + cnt + ", cod = " + cod + ", list = " + list + ", city = " + city + "]";
+        return "DailyForecastResponseModel{" +
+                "message='" + message + '\'' +
+                ", cnt='" + cnt + '\'' +
+                ", cod='" + cod + '\'' +
+                ", list=" + Arrays.toString(list) +
+                ", city=" + city +
+                '}';
     }
 }

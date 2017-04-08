@@ -1,12 +1,14 @@
 package github.vatsal.easyweather;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 
 import github.vatsal.easyweather.Helper.WeatherCallback;
 import github.vatsal.easyweather.retrofit.api.ApiClient;
 import github.vatsal.easyweather.retrofit.api.WeatherRetrofitCallback;
+import github.vatsal.easyweather.retrofit.models.CurrentWeatherResponseModel;
+import github.vatsal.easyweather.retrofit.models.DailyForecastResponseModel;
 import github.vatsal.easyweather.retrofit.models.ForecastResponseModel;
-import github.vatsal.easyweather.retrofit.models.WeatherResponseModel;
 import retrofit2.Call;
 
 /**
@@ -27,11 +29,11 @@ public class WeatherMap {
         this.APP_ID = APP_ID;
     }
 
-    public void getCityWeather(String city, WeatherCallback<WeatherResponseModel> weatherCallback) {
+
+    public void getCityWeather(String city, WeatherCallback<CurrentWeatherResponseModel> weatherCallback) {
         final ApiClient objApi = ApiClient.getInstance();
         try {
             Call objCall = null;
-
             objCall = objApi.getApi(context).getCityWeather(APP_ID, city);
 
             if (objCall != null) {
@@ -42,7 +44,7 @@ public class WeatherMap {
         }
     }
 
-    public void getLocationWeather(String latitude, String longitude, WeatherCallback<WeatherResponseModel> weatherCallback) {
+    public void getLocationWeather(String latitude, String longitude, WeatherCallback<CurrentWeatherResponseModel> weatherCallback) {
         final ApiClient objApi = ApiClient.getInstance();
         try {
             Call objCall = null;
@@ -85,6 +87,42 @@ public class WeatherMap {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    public void getCityDailyForecast(String city, @Nullable String dayCount, WeatherCallback<DailyForecastResponseModel> forecastCallback) {
+        final ApiClient objApi = ApiClient.getInstance();
+        try {
+            Call objCall = null;
+
+            objCall = (dayCount == null)?objApi.getApi(context).getCityDailyForcast(APP_ID, city):objApi.getApi(context).getCityDailyForcast(APP_ID, city, dayCount);
+
+            if (objCall != null) {
+                enqueue(forecastCallback, objCall);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void getCityDailyForecast(String city, WeatherCallback<DailyForecastResponseModel> forecastCallback) {
+        getCityDailyForecast(city, null, forecastCallback);
+    }
+
+    public void getLocationDailyForecast(String latitude, String longitude, @Nullable String dayCount, WeatherCallback<DailyForecastResponseModel> forecastCallback) {
+        final ApiClient objApi = ApiClient.getInstance();
+        try {
+            Call objCall = null;
+
+            objCall = (dayCount == null)?objApi.getApi(context).getLocationDailyForecast(APP_ID, latitude, longitude):objApi.getApi(context).getLocationDailyForecast(APP_ID, latitude, longitude, dayCount);
+
+            if (objCall != null) {
+                enqueue(forecastCallback, objCall);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getLocationDailyForecast(String latitude, String longitude, WeatherCallback<DailyForecastResponseModel> forecastCallback) {
+        getLocationDailyForecast(latitude, longitude, null, forecastCallback);
     }
 
     private <T> void  enqueue(final WeatherCallback<T> callback, Call objCall){

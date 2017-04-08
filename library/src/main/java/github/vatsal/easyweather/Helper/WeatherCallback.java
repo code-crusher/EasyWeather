@@ -6,9 +6,9 @@ package github.vatsal.easyweather.Helper;
  --6/23/2016 at
  --4:29 PM
  */
-public abstract class WeatherCallback<T> {
+public abstract class WeatherCallback<WeatherResponseModel> {
 
-    public abstract void success(T response);
+    public abstract void success(WeatherResponseModel response);
 
     public abstract void failure(String message);
 }
