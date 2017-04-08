@@ -34,7 +34,7 @@ allprojects {
 
 ```gradle
 dependencies {
-	        compile 'com.github.code-crusher:EasyWeather:v1.2'
+	        compile 'com.github.code-crusher:EasyWeather:v1.2' // not this version code 
 	}
 ```
 
@@ -47,38 +47,35 @@ buildTypes.each {
 ```
 First create `WeatherMap` object:
 ```Java
- WeatherMap weatherMap = new WeatherMap(this, OWM_API_KEY);
+ WeatherMap weatherMap = new WeatherMap(this, OWM_API_KEY, LANG);
 ```
 To get **Current Weather** use this in `Activity`:
 
 **By City Name**:
 ```Java
-weatherMap.getCityWeather(city, new WeatherCallback() {
+weatherMap.getCityWeather(city, new WeatherCallback<CurrentWeatherResponseModel>() {
             @Override
-            public void success(WeatherResponseModel response) {
-                Weather weather[] = response.getWeather();
-                String weatherMain = weather[0].getMain();
+            public void success(CurrentWeatherResponseModel response) {
+                Log.i(response.toString());
             }
+
+            @Override
+            public void failure(String message) {
+
+            }
+        });
 ```
 To get temperature in specific units you can use:
 ```Java
 Double temperature = TempUnitConverter.convertToCelsius(response.getMain().getTemp());
 ```
 
-To get other details you can use:
-```Java
-String location = response.getName();
-String humidity= response.getMain().getHumidity();
-String pressure = response.getMain().getPressure();
-String windSpeed = response.getWind().getSpeed();
-String iconLink = weather[0].getIconLink();
- ```
 **By Location Coordinates**:
 ```Java
-weatherMap.getLocationWeather(latitude, longitude, new WeatherCallback() {
+weatherMap.getLocationWeather(city, new WeatherCallback<CurrentWeatherResponseModel>() {
             @Override
-            public void success(WeatherResponseModel response) {
-                
+            public void success(CurrentWeatherResponseModel response) {
+                Log.i(response.toString());
             }
 
             @Override
@@ -92,10 +89,10 @@ To get **Forecast** use this in `Activity` also you need specify `index` to get 
 **By City Name:**
 
 ```Java
-weatherMap.getCityForecast(city, new ForecastCallback() {
+weatherMap.getCityForecast(city, new WeatherCallback<ForecastResponseModel>() {
             @Override
             public void success(ForecastResponseModel response) {
-                Weather weather[] = response.getList()[index].getWeather();
+                Log.i(response.toString());
             }
 
             @Override
@@ -109,10 +106,43 @@ weatherMap.getCityForecast(city, new ForecastCallback() {
 **By Location Coordinates:**
 
 ```Java
-weatherMap.getLocationForecast(latitude, longitude, new ForecastCallback() {
+weatherMap.getLocationForecast(city, new WeatherCallback<ForecastResponseModel>() {
             @Override
             public void success(ForecastResponseModel response) {
-                
+                Log.i(response.toString());
+            }
+
+            @Override
+            public void failure(String message) {
+
+            }
+        });
+```
+
+**By City Name:**
+
+```Java
+weatherMap.getCityDailyForecast(city, [OPTIONAL] "6", new WeatherCallback<DailyForecastResponseModel>() {
+            @Override
+            public void success(DailyForecastResponseModel response) {
+                Log.i(response.toString());
+            }
+
+            @Override
+            public void failure(String message) {
+
+            }
+        });
+```
+
+
+**By Location Coordinates:**
+
+```Java
+weatherMap.getLocationDailyForecast(city, [OPTIONAL] "6", new WeatherCallback<DailyForecastResponseModel>() {
+            @Override
+            public void success(DailyForecastResponseModel response) {
+                Log.i(response.toString());
             }
 
             @Override
