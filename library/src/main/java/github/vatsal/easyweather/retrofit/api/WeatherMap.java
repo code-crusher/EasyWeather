@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 
 import github.vatsal.easyweather.Helper.WeatherCallback;
 import github.vatsal.easyweather.retrofit.api.ApiClient;
+import github.vatsal.easyweather.retrofit.api.WeatherInterface;
 import github.vatsal.easyweather.retrofit.api.WeatherRetrofitCallback;
 import github.vatsal.easyweather.retrofit.models.CurrentWeatherResponseModel;
 import github.vatsal.easyweather.retrofit.models.DailyForecastResponseModel;
@@ -26,12 +27,14 @@ public class WeatherMap {
     String lang;
 
     ApiClient apiClient;
+    WeatherInterface weatherInterface;
 
     public WeatherMap(Context context, String APP_ID, String lang) {
         this.context = context;
         this.APP_ID = APP_ID;
         this.lang = lang;
         apiClient = ApiClient.getInstance();
+        this.weatherInterface = apiClient.
     }
 
 
