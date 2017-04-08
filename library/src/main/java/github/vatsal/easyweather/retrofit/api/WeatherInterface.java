@@ -11,38 +11,46 @@ public interface WeatherInterface {
 
     @GET("weather")
     Call<CurrentWeatherResponseModel> getCityWeather(@Query("appid") String appid,
-                                                     @Query("q") String city);
+                                                     @Query("q") String city,
+                                                     @Query("lang") String lang);
 
     @GET("weather")
     Call<CurrentWeatherResponseModel> getLocationWeather(@Query("appid") String appid,
                                                          @Query("lat") String latitude,
-                                                         @Query("lon") String longitude);
+                                                         @Query("lon") String longitude,
+                                                         @Query("lang") String lang);
 
     @GET("forecast")
     Call<ForecastResponseModel> getCityForcast(@Query("appid") String appid,
-                                               @Query("q") String city);
+                                               @Query("q") String city,
+                                               @Query("lang") String lang);
 
     @GET("forecast")
     Call<ForecastResponseModel> getLocationForecast(@Query("appid") String appid,
                                                     @Query("lat") String latitude,
-                                                    @Query("lon") String longitude);
+                                                    @Query("lon") String longitude,
+                                                    @Query("lang") String lang);
 
     @GET("forecast/daily")
     Call<DailyForecastResponseModel> getCityDailyForcast(@Query("appid") String appid,
-                                               @Query("q") String city);
+                                               @Query("q") String city,
+                                               @Query("lang") String lang);
     @GET("forecast/daily")
     Call<DailyForecastResponseModel> getCityDailyForcast(@Query("appid") String appid,
                                                     @Query("q") String city,
-                                                    @Query("cnt") String cnt);
+                                                    @Query("cnt") String cnt,
+                                                    @Query("lang") String lang);
 
     @GET("forecast/daily")
     Call<DailyForecastResponseModel> getLocationDailyForecast(@Query("appid") String appid,
                                                          @Query("lat") String latitude,
-                                                         @Query("lon") String longitude);
+                                                         @Query("lon") String longitude,
+                                                         @Query("lang") String lang);
     @GET("forecast/daily")
     Call<DailyForecastResponseModel> getLocationDailyForecast(@Query("appid") String appid,
                                                               @Query("lat") String latitude,
                                                               @Query("lon") String longitude,
-                                                              @Query("cnt") String cnt);
+                                                              @Query("cnt") String cnt,
+                                                              @Query("lang") String lang);
 
 }

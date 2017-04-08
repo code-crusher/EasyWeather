@@ -23,18 +23,21 @@ public class WeatherMap {
 
     Context context;
     String APP_ID;
+    String lang;
 
-    public WeatherMap(Context context, String APP_ID) {
+    ApiClient apiClient;
+
+    public WeatherMap(Context context, String APP_ID, String lang) {
         this.context = context;
         this.APP_ID = APP_ID;
+        this.lang = lang;
+        apiClient = ApiClient.getInstance();
     }
 
 
     public void getCityWeather(String city, WeatherCallback<CurrentWeatherResponseModel> weatherCallback) {
-        final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
-            objCall = objApi.getApi(context).getCityWeather(APP_ID, city);
+            Call objCall = apiClient.getApi(context).getCityWeather(APP_ID, city, lang);
 
             if (objCall != null) {
                 enqueue(weatherCallback, objCall);
@@ -45,11 +48,8 @@ public class WeatherMap {
     }
 
     public void getLocationWeather(String latitude, String longitude, WeatherCallback<CurrentWeatherResponseModel> weatherCallback) {
-        final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
-
-            objCall = objApi.getApi(context).getLocationWeather(APP_ID, latitude, longitude);
+            Call objCall = apiClient.getApi(context).getLocationWeather(APP_ID, latitude, longitude, lang);
 
             if (objCall != null) {
                 enqueue(weatherCallback, objCall);
@@ -60,11 +60,9 @@ public class WeatherMap {
     }
 
     public void getCityForecast(String city, WeatherCallback<ForecastResponseModel> forecastCallback) {
-        final ApiClient objApi = ApiClient.getInstance();
-        try {
-            Call objCall = null;
 
-            objCall = objApi.getApi(context).getCityForcast(APP_ID, city);
+        try {
+            Call objCall = apiClient.getApi(context).getCityForcast(APP_ID, city, lang);
 
             if (objCall != null) {
                 enqueue(forecastCallback, objCall);
@@ -75,11 +73,8 @@ public class WeatherMap {
     }
 
     public void getLocationForecast(String latitude, String longitude, WeatherCallback<ForecastResponseModel> forecastCallback) {
-        final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
-
-            objCall = objApi.getApi(context).getLocationForecast(APP_ID, latitude, longitude);
+            Call objCall = apiClient.getApi(context).getLocationForecast(APP_ID, latitude, longitude, lang);
 
             if (objCall != null) {
                 enqueue(forecastCallback, objCall);
@@ -89,11 +84,8 @@ public class WeatherMap {
         }
     }
     public void getCityDailyForecast(String city, @Nullable String dayCount, WeatherCallback<DailyForecastResponseModel> forecastCallback) {
-        final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
-
-            objCall = (dayCount == null)?objApi.getApi(context).getCityDailyForcast(APP_ID, city):objApi.getApi(context).getCityDailyForcast(APP_ID, city, dayCount);
+            Call objCall = (dayCount == null)?apiClient.getApi(context).getCityDailyForcast(APP_ID, city, lang):apiClient.getApi(context).getCityDailyForcast(APP_ID, city, dayCount, lang);
 
             if (objCall != null) {
                 enqueue(forecastCallback, objCall);
@@ -107,11 +99,8 @@ public class WeatherMap {
     }
 
     public void getLocationDailyForecast(String latitude, String longitude, @Nullable String dayCount, WeatherCallback<DailyForecastResponseModel> forecastCallback) {
-        final ApiClient objApi = ApiClient.getInstance();
         try {
-            Call objCall = null;
-
-            objCall = (dayCount == null)?objApi.getApi(context).getLocationDailyForecast(APP_ID, latitude, longitude):objApi.getApi(context).getLocationDailyForecast(APP_ID, latitude, longitude, dayCount);
+            Call objCall = (dayCount == null)?apiClient.getApi(context).getLocationDailyForecast(APP_ID, latitude, longitude, lang):apiClient.getApi(context).getLocationDailyForecast(APP_ID, latitude, longitude, dayCount, lang);
 
             if (objCall != null) {
                 enqueue(forecastCallback, objCall);

@@ -3,7 +3,6 @@ package github.vatsal.easyweatherdemo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -22,10 +21,12 @@ import github.vatsal.easyweather.retrofit.models.CurrentWeatherResponseModel;
 import github.vatsal.easyweather.retrofit.models.DailyForecastResponseModel;
 import github.vatsal.easyweather.retrofit.models.ForecastResponseModel;
 import github.vatsal.easyweather.retrofit.models.Weather;
+import trikita.log.Log;
 
 public class MainActivity extends AppCompatActivity {
 
     public final String APP_ID = BuildConfig.OWM_API_KEY;
+    public final String lang = "fr";
     String city = "San Francisco";
 
     @BindView(R.id.weather_title)
@@ -81,11 +82,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadWeather(String city) {
-        WeatherMap weatherMap = new WeatherMap(this, APP_ID);
+        WeatherMap weatherMap = new WeatherMap(this, APP_ID, lang);
         weatherMap.getCityWeather(city, new WeatherCallback<CurrentWeatherResponseModel>() {
             @Override
             public void success(CurrentWeatherResponseModel response) {
                 populateWeather(response);
+                Log.i(response.toString());
             }
 
             @Override
@@ -97,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         weatherMap.getCityForecast(city, new WeatherCallback<ForecastResponseModel>() {
             @Override
             public void success(ForecastResponseModel response) {
-                //Log.i("test", response.toString());
+                Log.i(response.toString());
             }
 
             @Override
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         weatherMap.getCityDailyForecast(city, "3", new WeatherCallback<DailyForecastResponseModel>() {
             @Override
             public void success(DailyForecastResponseModel response) {
-                Log.i("test", response.toString());
+                Log.i(response.toString());
             }
 
             @Override

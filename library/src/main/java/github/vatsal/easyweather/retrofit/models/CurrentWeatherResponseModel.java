@@ -1,5 +1,7 @@
 package github.vatsal.easyweather.retrofit.models;
 
+import java.util.Arrays;
+
 /**
  * Created by
  * --Vatsal Bajpai under
@@ -132,6 +134,19 @@ public class CurrentWeatherResponseModel {
 
     @Override
     public String toString() {
-        return "ClassPojo [id = " + id + ", dt = " + dt + ", clouds = " + clouds + ", coord = " + coord + ", wind = " + wind + ", cod = " + cod + ", sys = " + sys + ", name = " + name + ", base = " + base + ", weather = " + weather + ", rain = " + rain + ", main = " + main + "]";
+        return "CurrentWeatherResponseModel{" +
+                "id='" + id + '\'' +
+                ", dt='" + dt + '\'' +
+                ", clouds=" + clouds +
+                ", coord=" + coord +
+                ", wind=" + wind +
+                ", cod='" + cod + '\'' +
+                ", sys=" + sys +
+                ", name='" + name + '\'' +
+                ", base='" + base + '\'' +
+                ", weather=" + Arrays.toString(weather) +
+                ", rain='" + rain + '\'' +
+                ", main=" + main +
+                '}';
     }
 }

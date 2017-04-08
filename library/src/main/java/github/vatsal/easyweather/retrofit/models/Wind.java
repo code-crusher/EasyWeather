@@ -31,6 +31,9 @@ public class Wind {
 
     @Override
     public String toString() {
-        return "ClassPojo [speed = " + speed + ", deg = " + deg + "]";
+        return "Wind{" +
+                "speed='" + speed + '\'' +
+                ", deg='" + deg + '\'' +
+                '}';
     }
 }

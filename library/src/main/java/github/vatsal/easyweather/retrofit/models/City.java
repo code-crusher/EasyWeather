@@ -71,6 +71,13 @@ public class City {
 
     @Override
     public String toString() {
-        return "ClassPojo [coord = " + coord + ", id = " + id + ", sys = " + sys + ", name = " + name + ", population = " + population + ", country = " + country + "]";
+        return "City{" +
+                "coord=" + coord +
+                ", id='" + id + '\'' +
+                ", sys=" + sys +
+                ", name='" + name + '\'' +
+                ", population='" + population + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

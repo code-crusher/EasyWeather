@@ -26,4 +26,11 @@ public class Rain {
         this._3h = _3h;
     }
 
+
+    @Override
+    public String toString() {
+        return "Rain{" +
+                "_3h=" + _3h +
+                '}';
+    }
 }

@@ -28,6 +28,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:8.5.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'co.trikita:log:1.1.5'
     compile project(path: ':library')
 //    compile 'github.vatsal.easyweather:library:1.0.0'
 
