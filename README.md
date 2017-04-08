@@ -119,7 +119,7 @@ weatherMap.getLocationForecast(latitude, longitude, new WeatherCallback<Forecast
         });
 ```
 
-To get **DailyForecast** use this in `Activity` also you need specify `index` to get the specific hour of [16 day / daily forecast](http://openweathermap.org/forecast5):
+To get **DailyForecast** use this in `Activity` also you need specify `index` to get the specific day of [16 day / daily forecast](http://openweathermap.org/forecast5):
 
 **By City Name:**
 
