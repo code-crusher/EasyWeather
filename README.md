@@ -38,7 +38,7 @@ allprojects {
 
 ```gradle
 dependencies {
-	        compile 'com.github.sokarcreative:EasyWeather:development-SNAPSHOT'
+	        compile 'com.github.sokarcreative:EasyWeather:1.3.0'
 	}
 ```
 
@@ -51,7 +51,7 @@ buildTypes.each {
 ```
 First create `WeatherMap` object:
 ```Java
- WeatherMap weatherMap = new WeatherMap(this, OWM_API_KEY, LANG);
+ WeatherMap weatherMap = new WeatherMap(this, OWM_API_KEY, LANG); // LANG like "en", #see Multilingual support : https://openweathermap.org/current at the bottom page
 ```
 To get **Current Weather** use this in `Activity`:
 
@@ -128,7 +128,7 @@ To get **DailyForecast** use this in `Activity` also you need specify `index` to
 **By City Name:**
 
 ```Java
-weatherMap.getCityDailyForecast(city, [OPTIONAL] "6", new WeatherCallback<DailyForecastResponseModel>() {
+weatherMap.getCityDailyForecast(city, [OPTIONAL] dayCount, new WeatherCallback<DailyForecastResponseModel>() {
             @Override
             public void success(DailyForecastResponseModel response) {
                 Log.i(response.toString());
@@ -145,7 +145,7 @@ weatherMap.getCityDailyForecast(city, [OPTIONAL] "6", new WeatherCallback<DailyF
 **By Location Coordinates:**
 
 ```Java
-weatherMap.getLocationDailyForecast(latitude, longitude, [OPTIONAL] "6", new WeatherCallback<DailyForecastResponseModel>() {
+weatherMap.getLocationDailyForecast(latitude, longitude, [OPTIONAL] dayCount, new WeatherCallback<DailyForecastResponseModel>() {
             @Override
             public void success(DailyForecastResponseModel response) {
                 Log.i(response.toString());
