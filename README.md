@@ -3,6 +3,10 @@
 
 Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API for Android.
 
+Fork version of : https://github.com/code-crusher/EasyWeather
+
+Changes : More Generic / Support lang / Add "16 day / daily forecast" feature
+
 --------
 ###Specs
 
@@ -34,7 +38,7 @@ allprojects {
 
 ```gradle
 dependencies {
-	        compile 'com.github.code-crusher:EasyWeather:v1.2' // not this version code 
+	        compile 'com.github.sokarcreative:EasyWeather:development-SNAPSHOT'
 	}
 ```
 
@@ -119,7 +123,7 @@ weatherMap.getLocationForecast(latitude, longitude, new WeatherCallback<Forecast
         });
 ```
 
-To get **DailyForecast** use this in `Activity` also you need specify `index` to get the specific day of [16 day / daily forecast](http://openweathermap.org/forecast5):
+To get **DailyForecast** use this in `Activity` also you need specify `index` to get the specific day of [16 day / daily forecast](http://openweathermap.org/forecast16):
 
 **By City Name:**
 

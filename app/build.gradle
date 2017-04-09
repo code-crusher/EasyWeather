@@ -30,6 +30,8 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'co.trikita:log:1.1.5'
     compile project(path: ':library')
-//    compile 'github.vatsal.easyweather:library:1.0.0'
+
+    //compile 'com.github.sokarcreative:EasyWeather:development-SNAPSHOT'
+    //compile 'github.vatsal.easyweather:library:1.0.0'
 
 }
