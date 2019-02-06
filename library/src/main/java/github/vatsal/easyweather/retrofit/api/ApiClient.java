@@ -17,7 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class ApiClient {
 
     private static ApiClient uniqInstance;
-    private final String URL_LIVE = "http://api.openweathermap.org/data/2.5/";
+    private final String URL_LIVE = "https://api.openweathermap.org/data/2.5/";
 
     private WeatherInterface weatherInterface;
 

@@ -87,7 +87,7 @@ weatherMap.getLocationWeather(latitude, longitude, new WeatherCallback() {
             }
         });
 ```
-To get **Forecast** use this in `Activity` also you need specify `index` to get the specific hour of [3 hour Forecast](http://openweathermap.org/forecast5):
+To get **Forecast** use this in `Activity` also you need specify `index` to get the specific hour of [3 hour Forecast](https://openweathermap.org/forecast5):
 
 **By City Name:**
 
