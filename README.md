@@ -4,21 +4,21 @@
 Easy and quick weather fetching from [OpenWeatherMap](openweathermap.org) API for Android.
 
 --------
-###Specs
+### Specs
 
 [![](https://jitpack.io/v/code-crusher/EasyWeather.svg)](https://jitpack.io/#code-crusher/EasyWeather)
 <a href="http://www.methodscount.com/?lib=com.github.dextorer%3Asofa%3A1.0.0"><img src="https://img.shields.io/badge/Methods and size-core: 817 | 105 KB-e91e63.svg"/></a>
 <a href="http://twitter.com/vatsal__bajpai"><img src="https://img.shields.io/badge/Twitter-@vatsal__bajpai-blue.svg?style=flat" alt="Twitter" data-canonical-src="https://img.shields.io/badge/Twitter-@vatsal__bajpai-blue.svg?style=flat" style="max-width:100%;"></a><br>
 
-###Featured in
+### Featured in
 <a href="https://android-arsenal.com/details/1/3798"><img src="https://img.shields.io/badge/Android%20Arsenal-EasyWeather-green.svg"/></a>
 
-#Concept Art
+# Concept Art
 ![Concept Art](https://github.com/code-crusher/EasyWeather/blob/master/images/concept-art.png)
 
-#Screenshot
+# Screenshot
 ![Screenshot](https://github.com/code-crusher/EasyWeather/blob/master/images/screenshot.png)
-#Integration
+# Integration
 -------------
 Add the JitPack repository to your build file, add it in your root build.gradle at the end of repositories:
 ```gradle
@@ -38,7 +38,7 @@ dependencies {
 	}
 ```
 
-#Usage
+# Usage
 First you would need `API_KEY` from [OpenWeatherMap](openweathermap.org) and place it in your `build.gradle`
 ```gradle
 buildTypes.each {
@@ -144,7 +144,7 @@ I would love to welcome contributions and support from other developers. Please 
 5. Submit a **Pull request** so that i can review your changes
 NOTE: Be sure to merge the latest from "upstream" before making a pull request!
 
-#License
+# License
 
 > Copyright 2016 Vatsal Bajpai
 
