@@ -10,14 +10,14 @@ import java.util.Arrays;
  * --1:48 AM in
  * --OpenWeatherMapDemo
  */
-public class ForecastResponseModel {
+public class DailyForecastResponseModel {
     private String message;
 
     private String cnt;
 
     private String cod;
 
-    private Forecast[] list;
+    private DailyForecast[] list;
 
     private City city;
 
@@ -45,11 +45,11 @@ public class ForecastResponseModel {
         this.cod = cod;
     }
 
-    public Forecast[] getList() {
+    public DailyForecast[] getList() {
         return list;
     }
 
-    public void setList(Forecast[] list) {
+    public void setList(DailyForecast[] list) {
         this.list = list;
     }
 
@@ -63,7 +63,7 @@ public class ForecastResponseModel {
 
     @Override
     public String toString() {
-        return "ForecastResponseModel{" +
+        return "DailyForecastResponseModel{" +
                 "message='" + message + '\'' +
                 ", cnt='" + cnt + '\'' +
                 ", cod='" + cod + '\'' +
@@ -71,6 +71,4 @@ public class ForecastResponseModel {
                 ", city=" + city +
                 '}';
     }
-
-
 }

@@ -6,13 +6,13 @@ group = 'com.github.vatsal'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.1"
+    buildToolsVersion "25.0.2"
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 25
-        versionCode 11
-        versionName "1.1"
+        versionCode 12
+        versionName "1.2"
     }
     buildTypes {
         release {
@@ -23,10 +23,10 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
 
-    compile 'com.google.code.gson:gson:2.6.2'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.4.2'
+    compile 'com.google.code.gson:gson:2.7'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.2.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.6.0'
 }

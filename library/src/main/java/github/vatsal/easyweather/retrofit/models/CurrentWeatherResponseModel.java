@@ -1,6 +1,6 @@
 package github.vatsal.easyweather.retrofit.models;
 
-import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * Created by
@@ -10,7 +10,7 @@ import java.io.Serializable;
  * --3:16 PM in
  * --PopularMoviesApp
  */
-public class WeatherResponseModel implements Serializable {
+public class CurrentWeatherResponseModel {
 
     private String id;
 
@@ -134,6 +134,19 @@ public class WeatherResponseModel implements Serializable {
 
     @Override
     public String toString() {
-        return "ClassPojo [id = " + id + ", dt = " + dt + ", clouds = " + clouds + ", coord = " + coord + ", wind = " + wind + ", cod = " + cod + ", sys = " + sys + ", name = " + name + ", base = " + base + ", weather = " + weather + ", rain = " + rain + ", main = " + main + "]";
+        return "CurrentWeatherResponseModel{" +
+                "id='" + id + '\'' +
+                ", dt='" + dt + '\'' +
+                ", clouds=" + clouds +
+                ", coord=" + coord +
+                ", wind=" + wind +
+                ", cod='" + cod + '\'' +
+                ", sys=" + sys +
+                ", name='" + name + '\'' +
+                ", base='" + base + '\'' +
+                ", weather=" + Arrays.toString(weather) +
+                ", rain='" + rain + '\'' +
+                ", main=" + main +
+                '}';
     }
 }

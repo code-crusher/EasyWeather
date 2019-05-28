@@ -21,6 +21,8 @@ public class Clouds {
 
     @Override
     public String toString() {
-        return "ClassPojo [all = " + all + "]";
+        return "Clouds{" +
+                "all='" + all + '\'' +
+                '}';
     }
 }

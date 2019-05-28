@@ -1,5 +1,7 @@
 package github.vatsal.easyweather.retrofit.models;
 
+import java.util.Arrays;
+
 /**
  * Created by
  * --Vatsal Bajpai under
@@ -8,7 +10,7 @@ package github.vatsal.easyweather.retrofit.models;
  * --1:50 AM in
  * --OpenWeatherMapDemo
  */
-public class List {
+public class Forecast {
     private Clouds clouds;
 
     private String dt;
@@ -91,6 +93,15 @@ public class List {
 
     @Override
     public String toString() {
-        return "ClassPojo [clouds = " + clouds + ", dt = " + dt + ", wind = " + wind + ", sys = " + sys + ", weather = " + weather + ", dt_txt = " + dt_txt + ", rain = " + rain + ", main = " + main + "]";
+        return "Forecast{" +
+                "clouds=" + clouds +
+                ", dt='" + dt + '\'' +
+                ", wind=" + wind +
+                ", sys=" + sys +
+                ", weather=" + Arrays.toString(weather) +
+                ", dt_txt='" + dt_txt + '\'' +
+                ", rain=" + rain +
+                ", main=" + main +
+                '}';
     }
 }

@@ -1,9 +1,6 @@
 package github.vatsal.easyweather.retrofit.api;
 
 
-import android.content.Context;
-import android.support.annotation.NonNull;
-
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -16,19 +13,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    private static ApiClient uniqInstance;
-    private final String URL_LIVE = "http://api.openweathermap.org/data/2.5/";
+    private static ApiClient instance;
+    private static final String URL_LIVE = "http://api.openweathermap.org/data/2.5/";
 
-    private WeatherInterface weatherInterface;
+
 
     public static synchronized ApiClient getInstance() {
-        if (uniqInstance == null) {
-            uniqInstance = new ApiClient();
+        if (instance == null) {
+            instance = new ApiClient();
         }
-        return uniqInstance;
+        return instance;
     }
 
-    private void ApiClient(@NonNull final Context currContext) {
+    protected WeatherInterface getWeatherInterface() {
+        WeatherInterface weatherInterface = null;
         try {
             HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
             // set your desired log level
@@ -51,10 +49,9 @@ public class ApiClient {
                     .addInterceptor(headerInterceptor)
                     .addInterceptor(logging)
                     .build();
-            String API_URL = URL_LIVE;
 
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(API_URL)
+                    .baseUrl(URL_LIVE)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(httpClient)
                     .build();
@@ -63,14 +60,6 @@ public class ApiClient {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public WeatherInterface getApi(Context currContext) {
-        if (uniqInstance == null) {
-            getInstance();
-        }
-        uniqInstance.ApiClient(currContext);
-
         return weatherInterface;
     }
 }

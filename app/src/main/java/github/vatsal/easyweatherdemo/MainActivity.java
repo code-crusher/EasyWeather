@@ -11,59 +11,61 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import github.vatsal.easyweather.Helper.ForecastCallback;
 import github.vatsal.easyweather.Helper.TempUnitConverter;
 import github.vatsal.easyweather.Helper.WeatherCallback;
-import github.vatsal.easyweather.WeatherMap;
+import github.vatsal.easyweather.retrofit.api.WeatherMap;
+import github.vatsal.easyweather.retrofit.models.CurrentWeatherResponseModel;
+import github.vatsal.easyweather.retrofit.models.DailyForecastResponseModel;
 import github.vatsal.easyweather.retrofit.models.ForecastResponseModel;
 import github.vatsal.easyweather.retrofit.models.Weather;
-import github.vatsal.easyweather.retrofit.models.WeatherResponseModel;
+import trikita.log.Log;
 
 public class MainActivity extends AppCompatActivity {
 
     public final String APP_ID = BuildConfig.OWM_API_KEY;
+    public final String lang = "fr";
     String city = "San Francisco";
 
-    @Bind(R.id.weather_title)
+    @BindView(R.id.weather_title)
     TextView weatherTitle;
-    @Bind(R.id.refresh)
+    @BindView(R.id.refresh)
     ImageButton refresh;
-    @Bind(R.id.weather_icon)
+    @BindView(R.id.weather_icon)
     ImageView weatherIcon;
-    @Bind(R.id.location)
+    @BindView(R.id.location)
     TextView location;
-    @Bind(R.id.condition)
+    @BindView(R.id.condition)
     TextView condition;
-    @Bind(R.id.temp)
+    @BindView(R.id.temp)
     TextView temp;
-    @Bind(R.id.tvHumidity)
+    @BindView(R.id.tvHumidity)
     TextView tvHumidity;
-    @Bind(R.id.tvPressure)
+    @BindView(R.id.tvPressure)
     TextView tvPressure;
-    @Bind(R.id.tvWind)
+    @BindView(R.id.tvWind)
     TextView tvWind;
-    @Bind(R.id.tvWindDeg)
+    @BindView(R.id.tvWindDeg)
     TextView tvWindDeg;
-    @Bind(R.id.et_city)
+    @BindView(R.id.et_city)
     EditText etCity;
-    @Bind(R.id.tv_go)
+    @BindView(R.id.tv_go)
     TextView tvGo;
-    @Bind(R.id.textLayout)
+    @BindView(R.id.textLayout)
     LinearLayout textLayout;
-    @Bind(R.id.humidity_desc)
+    @BindView(R.id.humidity_desc)
     TextView humidityDesc;
-    @Bind(R.id.pres_desc)
+    @BindView(R.id.pres_desc)
     TextView presDesc;
-    @Bind(R.id.ws_desc)
+    @BindView(R.id.ws_desc)
     TextView wsDesc;
-    @Bind(R.id.wd_desc)
+    @BindView(R.id.wd_desc)
     TextView wdDesc;
-    @Bind(R.id.ll_extraWeather)
+    @BindView(R.id.ll_extraWeather)
     LinearLayout llExtraWeather;
-    @Bind(R.id.weatherCard)
+    @BindView(R.id.weatherCard)
     CardView weatherCard;
 
     @Override
@@ -80,11 +82,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadWeather(String city) {
-        WeatherMap weatherMap = new WeatherMap(this, APP_ID);
-        weatherMap.getCityWeather(city, new WeatherCallback() {
+        WeatherMap weatherMap = new WeatherMap(this, APP_ID, lang);
+        weatherMap.getCityWeather(city, new WeatherCallback<CurrentWeatherResponseModel>() {
             @Override
-            public void success(WeatherResponseModel response) {
+            public void success(CurrentWeatherResponseModel response) {
                 populateWeather(response);
+                Log.i(response.toString());
             }
 
             @Override
@@ -93,10 +96,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        weatherMap.getCityForecast(city, new ForecastCallback() {
+        weatherMap.getCityForecast(city, new WeatherCallback<ForecastResponseModel>() {
             @Override
             public void success(ForecastResponseModel response) {
-                ForecastResponseModel responseModel = response;
+                Log.i(response.toString());
+            }
+
+            @Override
+            public void failure(String message) {
+
+            }
+        });
+
+        weatherMap.getCityDailyForecast(city, "3", new WeatherCallback<DailyForecastResponseModel>() {
+            @Override
+            public void success(DailyForecastResponseModel response) {
+                Log.i(response.toString());
             }
 
             @Override
@@ -106,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void populateWeather(WeatherResponseModel response) {
+    private void populateWeather(CurrentWeatherResponseModel response) {
 
         Weather weather[] = response.getWeather();
         condition.setText(weather[0].getMain());
@@ -126,5 +141,11 @@ public class MainActivity extends AppCompatActivity {
     public void go() {
         city = etCity.getText().toString().trim();
         loadWeather(city);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }
